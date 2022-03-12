@@ -1,0 +1,47 @@
+﻿{
+	"name": "ACoinList自动化",
+	"version": "3.3",
+	"icons": {
+		"228": "333.png"
+	},
+	"description": "",
+	"browser_action": {
+		"default_icon": {
+			"19": "333.png",
+			"38": "333.png"
+		},
+		"default_title": "chrome插件",
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"page": "background.html"
+	},
+	"permissions": [
+		"tabs",
+		"storage",
+		"cookies",
+		"webRequest",
+		"webRequestBlocking",
+		"*://*/*"
+	],
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": [
+				"lib/jquery-3.5.1.min.js", "lib/jquery.form.js", "lib/jquery.helper.js",
+				"lib/layer/layer.js",
+				"lib/layer/sjcl.js",
+				"sr/function.js",
+				"js/main.js"
+			],
+			"css": [
+				"sr/style.css",
+				"css/Custom.css",
+				"lib/layer/theme/default/layer.css"
+			],
+			"run_at": "document_end",
+			"all_frames": false
+		}
+	],
+	"manifest_version": 2
+}
